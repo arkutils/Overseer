@@ -32,21 +32,21 @@ Remote Containers extension_. It is recommend to use those. So make sure you hav
 
 .. _Docker: https://docs.docker.com/get-docker/
 .. _VS Code: https://code.visualstudio.com/
-.. _Remote Containers extension_: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+.. _Remote Containers extension: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
 Setup
 -----
 
 1. Clone the repo.
 2. Copy `docker-compose.override.example.yml` to `docker-compose.override.yml`
-     and update the path you your local ARK install
+   and update the path you your local ARK install
 3. Then open the `overseer` folder in VS Code.
 4. You should be prompted to "Reopen in Container". If you are not, run the
-     "Remote-Containers: Reopen in Container" from the Command Palette
-     (`View -> Command Palette...` or `Ctrl+Shift+P`)
+   "Remote-Containers: Reopen in Container" from the Command Palette
+   (`View -> Command Palette...` or `Ctrl+Shift+P`)
 5. VS Code will now build the Docker images and start them up. When it is
-     done, you should see a normal VS Code Workspace
+   done, you should see a normal VS Code Workspace
 6. Go to http://127.0.0.1:8000 in your Web browser and click "Sign In".
-     Then sign in with Discord or Github
+   Then sign in with Discord or Github
 7. Back in VS Code, run the command "Tasks: Run Task" and then "Overseer: Make Superuser".
-     Enter the username for your user when prompted.
+   Enter the username for your user when prompted.
