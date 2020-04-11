@@ -42,8 +42,10 @@ Setup
    and update the path you your local ARK install
 3. Then open the `overseer` folder in VS Code.
 4. You should be prompted to "Reopen in Container".
+
      * If you are not, run the "Remote-Containers: Reopen in Container" from
        the Command Palette (`View -> Command Palette...` or `Ctrl+Shift+P`)
+
 5. VS Code will now build the Docker images and start them up. When it is
    done, you should see a normal VS Code Workspace
 6. Go to http://127.0.0.1:8000 in your Web browser and click "Sign In".
