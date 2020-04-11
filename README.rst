@@ -27,8 +27,8 @@ Requirements
 This project is configured to work with Docker inside of VS Code using the
 Remote Containers extension_. It is recommend to use those. So make sure you have:
 
-* Docker_
-* VS Code_ with the Remote Containers extension_.
+* `Docker`_
+* `VS Code`_ with the `Remote Containers extension`_.
 
 .. _Docker: https://docs.docker.com/get-docker/
 .. _VS Code: https://code.visualstudio.com/
