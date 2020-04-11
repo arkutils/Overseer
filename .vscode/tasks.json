@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Overseer: Update Requirements",
+            "type": "shell",
+            "command": "pip-compile requirements/in/base.in requirements/in/dev.in -o requirements/dev.txt --upgrade && pip-compile requirements/in/base.in -o requirements/production.txt --upgrade",
+            "problemMatcher": []
+        },
+        {
+            "label": "Overseer: Migrate Database",
+            "type": "shell",
+            "command": "python manage.py migrate",
+            "problemMatcher": []
+        },
+        {
+            "label": "Overseer: Make Migrations",
+            "type": "shell",
+            "command": "python manage.py makemigrations",
+            "problemMatcher": []
+        },
+        {
+            "label": "Overseer: Django Shell",
+            "type": "shell",
+            "command": "python manage.py shell_plus",
+            "problemMatcher": []
+        },
+    ]
+}

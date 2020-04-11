@@ -1,0 +1,6 @@
+{
+    "python.linting.pylamaEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.promptToConfigure": false,
+    "python.envFile": "${workspaceFolder}/.env"
+}

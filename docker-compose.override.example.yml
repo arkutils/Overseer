@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  django: &django
+    volumes:
+      - /path/to/ark:/ark
+
+  celeryworker:
+    <<: *django
+
+  celerybeat:
+    <<: *django
+
+  flower:
+    <<: *django

@@ -1,7 +1,7 @@
 import pytest
 
 from overseer.users.models import User
-from overseer.users.tests.factories import UserFactory
+from tests.users.factories import UserFactory
 
 
 @pytest.fixture(autouse=True)

@@ -1,7 +1,7 @@
 import pytest
 
 from overseer.users.forms import UserCreationForm
-from overseer.users.tests.factories import UserFactory
+from tests.users.factories import UserFactory
 
 pytestmark = pytest.mark.django_db
 
