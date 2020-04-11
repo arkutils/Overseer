@@ -2,5 +2,8 @@
     "python.linting.pylamaEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.testing.promptToConfigure": false,
-    "python.envFile": "${workspaceFolder}/.env"
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.sortImports.args": [
+        "--settings-path=${workspaceFolder}/setup.cfg"
+    ],
 }

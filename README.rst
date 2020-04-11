@@ -21,85 +21,32 @@ Moved to settings_.
 
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
-Basic Commands
---------------
+Requirements
+------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+This project is configured to work with Docker inside of VS Code using the
+Remote Containers extension_. It is recommend to use those. So make sure you have:
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+* Docker_
+* VS Code_ with the Remote Containers extension_.
 
-* To create an **superuser account**, use this command::
+.. _Docker: https://docs.docker.com/get-docker/
+.. _VS Code: https://code.visualstudio.com/
+.. _Remote Containers extension_: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
-    $ python manage.py createsuperuser
+Setup
+-----
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
-
-Type checks
-^^^^^^^^^^^
-
-Running type checks with mypy:
-
-::
-
-  $ mypy overseer
-
-Test coverage
-^^^^^^^^^^^^^
-
-To run the tests, check your test coverage, and generate an HTML coverage report::
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  $ pytest
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
-
-Celery
-^^^^^^
-
-This app comes with Celery.
-
-To run a celery worker:
-
-.. code-block:: bash
-
-    cd overseer
-    celery -A config.celery_app worker -l info
-
-Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
-
-
-
-
-
-Deployment
-----------
-
-The following details how to deploy this application.
-
-
-
-Docker
-^^^^^^
-
-See detailed `cookiecutter-django Docker documentation`_.
-
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
-
-
-
+1. Clone the repo.
+2. Copy `docker-compose.override.example.yml` to `docker-compose.override.yml`
+     and update the path you your local ARK install
+3. Then open the `overseer` folder in VS Code.
+4. You should be prompted to "Reopen in Container". If you are not, run the
+     "Remote-Containers: Reopen in Container" from the Command Palette
+     (`View -> Command Palette...` or `Ctrl+Shift+P`)
+5. VS Code will now build the Docker images and start them up. When it is
+     done, you should see a normal VS Code Workspace
+6. Go to http://127.0.0.1:8000 in your Web browser and click "Sign In".
+     Then sign in with Discord or Github
+7. Back in VS Code, run the command "Tasks: Run Task" and then "Overseer: Make Superuser".
+     Enter the username for your user when prompted.

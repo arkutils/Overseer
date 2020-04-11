@@ -3,6 +3,8 @@ version: '3'
 services:
   django: &django
     volumes:
+      # set /path/to/ark to the correct path for your ARK install.
+      # this is the same as purlovia/livedata/game
       - /path/to/ark:/ark
 
   celeryworker:

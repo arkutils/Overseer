@@ -22,13 +22,14 @@ celery==4.4.2             # via -r requirements/in/base.in, django-celery-beat, 
 certifi==2020.4.5.1       # via requests
 cffi==1.14.0              # via argon2-cffi
 chardet==3.0.4            # via requests
-click==7.1.1              # via black, pip-tools
+click==7.0                # via -r requirements/in/base.in, black, django-click, pip-tools
 coverage==5.0.4           # via django-coverage-plugin, pytest-cov
 decorator==4.4.2          # via ipython, traitlets
 defusedxml==0.6.0         # via python3-openid
 django-allauth==0.41.0    # via -r requirements/in/base.in
 django-appconf==1.0.4     # via django-compressor
 django-celery-beat==2.0.0  # via -r requirements/in/base.in
+django-click==2.1.0       # via -r requirements/in/base.in
 django-compressor==2.4    # via -r requirements/in/base.in
 django-coverage-plugin==1.8.0  # via -r requirements/in/dev.in
 django-crispy-forms==1.9.0  # via -r requirements/in/base.in
@@ -52,7 +53,6 @@ gitpython==3.1.1          # via bandit
 humanize==0.5.1           # via flower
 idna==2.9                 # via requests
 imagesize==1.2.0          # via sphinx
-importlib-metadata==1.6.0  # via kombu, pluggy, pytest
 ipdb==0.13.2              # via -r requirements/in/dev.in
 ipython-genutils==0.2.0   # via traitlets
 ipython==7.13.0           # via ipdb
@@ -107,7 +107,7 @@ regex==2020.4.4           # via black
 requests-oauthlib==1.3.0  # via django-allauth
 requests==2.23.0          # via django-allauth, requests-oauthlib, sphinx
 rjsmin==1.1.0             # via django-compressor
-six==1.14.0               # via argon2-cffi, astroid, bandit, django-compressor, django-coverage-plugin, django-extensions, packaging, pip-tools, python-dateutil, stevedore, traitlets
+six==1.14.0               # via argon2-cffi, astroid, bandit, django-click, django-compressor, django-coverage-plugin, django-extensions, packaging, pip-tools, python-dateutil, stevedore, traitlets
 smmap==3.0.2              # via gitdb
 snowballstemmer==2.0.0    # via sphinx
 sphinx==3.0.1             # via -r requirements/in/dev.in
@@ -125,7 +125,7 @@ text-unidecode==1.3       # via faker, python-slugify
 toml==0.10.0              # via black, isort
 tornado==6.0.4            # via flower
 traitlets==4.3.3          # via ipython
-typed-ast==1.4.1          # via astroid, black, mypy
+typed-ast==1.4.1          # via black, mypy
 typing-extensions==3.7.4.2  # via django-stubs, mypy
 urllib3==1.25.8           # via requests
 vine==1.3.0               # via amqp, celery
@@ -133,7 +133,6 @@ wcwidth==0.1.9            # via prompt-toolkit, pytest
 werkzeug==1.0.1           # via -r requirements/in/dev.in
 whitenoise==5.0.1         # via -r requirements/in/base.in
 wrapt==1.11.2             # via astroid
-zipp==3.1.0               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
