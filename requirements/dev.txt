@@ -26,6 +26,7 @@ click==7.0                # via -r requirements/in/base.in, black, django-click,
 coverage==5.0.4           # via django-coverage-plugin, pytest-cov
 decorator==4.4.2          # via ipython, traitlets
 defusedxml==0.6.0         # via python3-openid
+django-admin-tools==0.9.0  # via -r requirements/in/base.in
 django-allauth==0.41.0    # via -r requirements/in/base.in
 django-appconf==1.0.4     # via django-compressor
 django-celery-beat==2.0.0  # via -r requirements/in/base.in
@@ -77,11 +78,14 @@ pillow==7.1.1             # via -r requirements/in/base.in
 pip-tools==4.5.1          # via -r requirements/in/dev.in
 pluggy==0.13.1            # via pytest
 prompt-toolkit==3.0.5     # via ipython
+psutil==5.6.7             # via purlovia
 psycopg2==2.8.5           # via -r requirements/in/base.in
 ptyprocess==0.6.0         # via pexpect
+git+https://github.com/arkutils/Purlovia.git#egg=purlovia  # via -r requirements/in/base.in
 py==1.8.1                 # via pytest
 pycodestyle==2.5.0        # via flake8
 pycparser==2.20           # via cffi
+pydantic==0.32.2          # via purlovia
 pyflakes==2.1.1           # via flake8
 pygments==2.6.1           # via ipython, sphinx
 pylint-celery==0.3        # via -r requirements/in/dev.in
@@ -100,12 +104,12 @@ python-dotenv==0.12.0     # via pytest-dotenv
 python-slugify==4.0.0     # via -r requirements/in/base.in
 python3-openid==3.1.0     # via django-allauth
 pytz==2019.3              # via babel, celery, django, django-timezone-field, flower
-pyyaml==5.3.1             # via bandit
+pyyaml==5.3.1             # via bandit, purlovia
 rcssmin==1.0.6            # via django-compressor
 redis==3.4.1              # via django-redis
 regex==2020.4.4           # via black
 requests-oauthlib==1.3.0  # via django-allauth
-requests==2.23.0          # via django-allauth, requests-oauthlib, sphinx
+requests==2.23.0          # via django-allauth, purlovia, requests-oauthlib, sphinx
 rjsmin==1.1.0             # via django-compressor
 six==1.14.0               # via argon2-cffi, astroid, bandit, django-click, django-compressor, django-coverage-plugin, django-extensions, packaging, pip-tools, python-dateutil, stevedore, traitlets
 smmap==3.0.2              # via gitdb

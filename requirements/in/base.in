@@ -10,6 +10,7 @@ django<3.1
 whitenoise
 django-click
 click<7.1
+django-admin-tools
 
 # Celery
 celery<5
@@ -19,3 +20,5 @@ flower
 pillow
 psycopg2 --no-binary psycopg2
 python-slugify
+
+git+https://github.com/arkutils/Purlovia.git#egg=purlovia

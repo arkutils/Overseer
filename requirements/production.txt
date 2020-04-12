@@ -33,17 +33,21 @@ idna==2.9                 # via requests
 kombu==4.6.8              # via celery
 oauthlib==3.1.0           # via requests-oauthlib
 pillow==7.1.1             # via -r requirements/in/base.in
+psutil==5.6.7             # via purlovia
 psycopg2==2.8.5           # via -r requirements/in/base.in
+git+https://github.com/arkutils/Purlovia.git#egg=purlovia  # via -r requirements/in/base.in
 pycparser==2.20           # via cffi
+pydantic==0.32.2          # via purlovia
 python-crontab==2.4.1     # via django-celery-beat
 python-dateutil==2.8.1    # via python-crontab
 python-slugify==4.0.0     # via -r requirements/in/base.in
 python3-openid==3.1.0     # via django-allauth
 pytz==2019.3              # via celery, django, django-timezone-field, flower
+pyyaml==5.3.1             # via purlovia
 rcssmin==1.0.6            # via django-compressor
 redis==3.4.1              # via django-redis
 requests-oauthlib==1.3.0  # via django-allauth
-requests==2.23.0          # via django-allauth, requests-oauthlib
+requests==2.23.0          # via django-allauth, purlovia, requests-oauthlib
 rjsmin==1.1.0             # via django-compressor
 six==1.14.0               # via argon2-cffi, django-click, django-compressor, python-dateutil
 sqlparse==0.3.1           # via django
