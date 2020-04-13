@@ -1,5 +1,40 @@
-# This will make sure the app is always imported when
-# Django starts so that shared_task will use this app.
-from .celery_app import app as celery_app
+from typing import Optional
 
-__all__ = ("celery_app",)
+from automate.config.reader import read_config
+from automate.config.sections import ConfigFile
+
+__all__ = [
+    "get_global_config",
+    "force_reload",
+    "ConfigFile",
+    "OVERRIDE_FILENAME",
+    "LOGGING_FILENAME",
+    "HIERARCHY_FILENAME",
+    "ROOT_LOGGER",
+]
+
+CONFIG_FILENAME = "/app/purlovia/config.ini"
+OVERRIDE_FILENAME = "/app/purlovia/overrides.yaml"
+LOGGING_FILENAME = "/app/purlovia/logging.yaml"
+HIERARCHY_FILENAME = "/app/purlovia/hierarchy.yaml"
+ROOT_LOGGER = "celery.task."
+
+config: Optional[ConfigFile] = None
+
+
+def get_global_config() -> ConfigFile:
+    _ensure_loaded()
+    assert config is not None
+    return config
+
+
+def force_reload():
+    global config  # pylint: disable=global-statement
+    config = None
+    _ensure_loaded()
+
+
+def _ensure_loaded():
+    global config  # pylint: disable=global-statement
+    if not config:
+        config = read_config(CONFIG_FILENAME)

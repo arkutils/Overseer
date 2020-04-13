@@ -20,6 +20,20 @@ services:
       - "8000:8000"
     command: /start
 
+  manage:
+    <<: *django
+    environment:
+      - DJANGO_MANAGE=1
+    command: ""
+    ports: []
+
+  test:
+    <<: *django
+    environment:
+      - PYTEST=1
+    command: ""
+    ports: []
+
   postgres:
     build:
       context: .
@@ -34,7 +48,7 @@ services:
   redis:
     image: redis:5.0
 
-  celeryworker:
+  celery:
     <<: *django
     image: overseer_local_celeryworker
     depends_on:

@@ -18,18 +18,19 @@ backcall==0.1.0           # via ipython
 bandit==1.6.2             # via -r requirements/in/dev.in
 billiard==3.6.3.0         # via celery
 black==19.10b0            # via -r requirements/in/dev.in
-celery==4.4.2             # via -r requirements/in/base.in, django-celery-beat, flower
+celery==4.4.2             # via -r requirements/in/base.in, django-celery-beat, django-celery-results, flower
 certifi==2020.4.5.1       # via requests
 cffi==1.14.0              # via argon2-cffi
 chardet==3.0.4            # via requests
 click==7.0                # via -r requirements/in/base.in, black, django-click, pip-tools
-coverage==5.0.4           # via django-coverage-plugin, pytest-cov
+coverage==5.1             # via django-coverage-plugin, pytest-cov
 decorator==4.4.2          # via ipython, traitlets
 defusedxml==0.6.0         # via python3-openid
 django-admin-tools==0.9.0  # via -r requirements/in/base.in
 django-allauth==0.41.0    # via -r requirements/in/base.in
 django-appconf==1.0.4     # via django-compressor
 django-celery-beat==2.0.0  # via -r requirements/in/base.in
+django-celery-results==1.2.1  # via -r requirements/in/base.in
 django-click==2.1.0       # via -r requirements/in/base.in
 django-compressor==2.4    # via -r requirements/in/base.in
 django-coverage-plugin==1.8.0  # via -r requirements/in/dev.in
@@ -81,11 +82,11 @@ prompt-toolkit==3.0.5     # via ipython
 psutil==5.6.7             # via purlovia
 psycopg2==2.8.5           # via -r requirements/in/base.in
 ptyprocess==0.6.0         # via pexpect
-git+https://github.com/arkutils/Purlovia.git#egg=purlovia  # via -r requirements/in/base.in
+git+https://github.com/AngellusMortis/Purlovia.git@feature/config_root_logger#egg=purlovia  # via -r requirements/in/base.in
 py==1.8.1                 # via pytest
 pycodestyle==2.5.0        # via flake8
 pycparser==2.20           # via cffi
-pydantic==0.32.2          # via purlovia
+pydantic==1.4             # via purlovia
 pyflakes==2.1.1           # via flake8
 pygments==2.6.1           # via ipython, sphinx
 pylint-celery==0.3        # via -r requirements/in/dev.in

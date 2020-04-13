@@ -1,0 +1,68 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+    # Used for console output
+    simple:
+        format: "%(levelname)s:%(name)s:%(message)s"
+
+    # Used for log files
+    withtime:
+        format: "%(asctime)s:%(levelname)s:%(name)s:%(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: simple
+        stream: ext://sys.stdout
+
+    debug_file_handler:
+        class: utils.log.CompressedRotatingFileHandler
+        level: DEBUG
+        formatter: withtime
+        filename: logs/debug.log
+        maxBytes: 52428800 # 50MB
+        backupCount: 5
+        encoding: utf8
+
+    info_file_handler:
+        class: utils.log.CompressedRotatingFileHandler
+        level: INFO
+        formatter: withtime
+        filename: logs/info.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 10
+        encoding: utf8
+
+    error_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: ERROR
+        formatter: withtime
+        filename: logs/errors.log
+        maxBytes: 2097152 # 2MB
+        backupCount: 10
+        encoding: utf8
+        delay: True
+
+    warning_file_handler:
+        class: utils.log.CompressedRotatingFileHandler
+        level: WARNING
+        formatter: withtime
+        filename: logs/warnings.log
+        maxBytes: 4194304 # 4MB
+        backupCount: 10
+        encoding: utf8
+        delay: True
+
+# Add specific config for individual Python modules here
+loggers:
+    my_example_module:
+        level: DEBUG
+        handlers: [debug_file_handler]
+        propagate: no
+
+# Default options
+root:
+    level: DEBUG
+    handlers: [console, info_file_handler, error_file_handler, debug_file_handler, warning_file_handler]

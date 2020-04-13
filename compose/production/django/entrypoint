@@ -36,4 +36,10 @@ until postgres_ready; do
 done
 >&2 echo 'PostgreSQL is available'
 
-exec "$@"
+if [ -n "${DJANGO_MANAGE}" ]; then
+    exec python manage.py $@
+elif [ -n "${PYTEST}" ]; then
+    exec pytest $@
+else
+    exec $@
+fi

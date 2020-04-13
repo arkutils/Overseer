@@ -134,27 +134,72 @@ LOGGING = {
         }
     },
     "handlers": {
-        "mail_admins": {
-            "level": "ERROR",
-            "filters": ["require_debug_false"],
-            "class": "django.utils.log.AdminEmailHandler",
-        },
+        # "discord": {
+        #     "level": "ERROR",
+        #     "filters": ["require_debug_false"],
+        #     "class": "django.utils.log.AdminEmailHandler",
+        # },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
+        "debug_file_handler": {
+            "class": "utils.log.CompressedRotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "verbose",
+            "filename": "/logs/debug.log",
+            "maxBytes": 52428800,  # 50MB
+            "backupCount": 5,
+            "encoding": "utf8",
+        },
+        "info_file_handler": {
+            "class": "utils.log.CompressedRotatingFileHandler",
+            "level": "INFO",
+            "formatter": "verbose",
+            "filename": "/logs/info.log",
+            "maxBytes": 10485760,  # 10MB
+            "backupCount": 10,
+            "encoding": "utf8",
+        },
+        "warning_file_handler": {
+            "class": "utils.log.CompressedRotatingFileHandler",
+            "level": "WARNING",
+            "formatter": "verbose",
+            "filename": "/logs/warning.log",
+            "maxBytes": 4194304,  # 4MB
+            "backupCount": 10,
+            "encoding": "utf8",
+        },
+        "error_file_handler": {
+            "class": "utils.log.CompressedRotatingFileHandler",
+            "level": "ERROR",
+            "formatter": "verbose",
+            "filename": "/logs/error.log",
+            "maxBytes": 2097152,  # 2MB
+            "backupCount": 10,
+            "encoding": "utf8",
+        },
     },
-    "root": {"level": "INFO", "handlers": ["console"]},
+    "root": {
+        "level": "DEBUG",
+        "handlers": [
+            "console",
+            "debug_file_handler",
+            "info_file_handler",
+            "warning_file_handler",
+            "error_file_handler",
+        ],
+    },
     "loggers": {
         "django.request": {
-            "handlers": ["mail_admins"],
+            "handlers": [],
             "level": "ERROR",
             "propagate": True,
         },
         "django.security.DisallowedHost": {
             "level": "ERROR",
-            "handlers": ["console", "mail_admins"],
+            "handlers": ["console"],
             "propagate": True,
         },
     },

@@ -1,0 +1,19 @@
+{% load humanize %}
+
+{% if not module.is_empty %}
+    <div id="module_{{ module.id }}" class="{{ module.render_css_classes }}">
+        {% if module.show_title and module.title %}<h2>{% if module.title_url %}<a href="{{ module.title_url }}">{{ module.title|capfirst }}</a>{% else %}{{ module.title|capfirst }}{% endif %}</h2>{% endif %}
+        <div class="dashboard-module-content">
+            {% if not module.last_started and not module.last_completed %}
+                Purlovia has not been ran yet
+            {% else %}
+                {% if module.last_completed %}
+                    <p>Purlovia last run was <strong>{{ module.last_completed.status|lower }}</strong> {{ module.last_completed.date_done|naturaltime }}</p>
+                {% endif %}
+                {% if module.last_started %}
+                    <p>Purlovia was started {{ module.last_started.date_done|naturaltime }}.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

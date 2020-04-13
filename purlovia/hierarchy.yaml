@@ -1,0 +1,384 @@
+'/Script/CoreUObject.Object':
+- '/Script/CoreUObject.Field':
+    - '/Script/CoreUObject.Enum':
+        - '/Script/Engine.UserDefinedEnum'
+    - '/Script/CoreUObject.Struct':
+        - '/Script/CoreUObject.Class':
+            - '/Script/Engine.BlueprintGeneratedClass':
+                - '/Script/Engine.AnimBlueprintGeneratedClass'
+                - '/Script/UMG.WidgetBlueprintGeneratedClass'
+        - '/Script/CoreUObject.ScriptStruct':
+            - '/Script/Engine.UserDefinedStruct'
+- '/Script/AIModule.BehaviorTree'
+- '/Script/AIModule.BTNode':
+    - '/Script/AIModule.BTAuxiliaryNode':
+        - '/Script/AIModule.BTDecorator':
+            - '/Script/AIModule.BTDecorator_BlueprintBase':
+                - '/Script/AIModule.BTDecorator_BlueprintBase_New'
+                - '/Script/AIModule.BTDecorator_BlueprintBase_New2'
+                - '/Script/AIModule.BTDecorator_CheckUseSpline'
+        - '/Script/AIModule.BTService':
+            - '/Script/AIModule.BTService_BlueprintBase':
+                - '/Script/AIModule.BTService_BlueprintBase_New'
+        - '/Script/AIModule.BTTask':
+            - '/Script/AIModule.BTTask_BlueprintBase':
+                - '/Script/AIModule.BTTask_BlueprintBase_New'
+- '/Script/Engine.Actor':
+    - '/Script/Engine.Brush':
+        - '/Script/Engine.Volume':
+            - '/Script/Engine.PostProcessVolume':
+                - '/Script/Engine.SpherePostProcessVolume'
+            - '/Script/ShooterGame.BiomeZoneVolume'
+            - '/Script/Engine.TileStreamingVolume'
+            - '/Script/ShooterGame.TogglePainVolume'
+            - '/Script/ShooterGame.NPCZoneVolume'
+            - '/Script/ShooterGame.NPCZoneSpawnVolume'
+            - '/Script/ShooterGame.SupplyCrateSpawningVolume'
+    - '/Script/Engine.Controller':
+        - '/Script/Engine.AIController':
+            - '/Script/ShooterGame.PrimalDinoAIController'
+        - '/Script/Engine.PlayerController':
+            - '/Script/ShooterGame.BasePlayerController':
+                - '/Script/ShooterGame.ShooterPlayerController'
+    - '/Script/Engine.Emitter':
+        - '/Script/ShooterGame.SupplyCrateSpawningSettings'
+        - '/Script/ShooterGame.PrimalEmitterSpawnable':
+            - '/Script/ShooterGame.PrimalBuff'
+    - '/Script/Engine.HierarchicalInstancedStaticMeshActor'
+    - '/Script/Engine.HUD':
+        - '/Script/ShooterGame.ShooterHUD'
+    - '/Script/Engine.GroundClutterLayerActor'
+    - '/Script/Engine.Info': # Done
+        - '/Script/Engine.GameMode':
+            - '/Script/ShooterGame.LocalSpawnGameMode'
+            - '/Script/ShooterGame.ShooterGame_Menu'
+            - '/Script/ShooterGame.ShooterGameMode':
+                - '/Script/ShooterGame.CustomGameMode'
+        - '/Script/Engine.GameState':
+            - '/Script/ShooterGame.ShooterGameState':
+                - '/Script/ShooterGame.BattleGameState'
+                - '/Script/ShooterGame.CustomGameState'
+        - '/Script/Engine.PlayerState':
+            - '/Script/ShooterGame.ShooterPlayerState'
+        - '/Script/Engine.SkyLight'
+        - '/Script/Engine.WorldSettings':
+            - '/Script/ShooterGame.PrimalWorldSettings'
+        - '/Script/ShooterGame.DayCycleManager'
+        - '/Script/ShooterGame.MatineeActorManager'
+        - '/Script/ShooterGame.NPCZoneManager'
+        - '/Script/ShooterGame.PrimalStructurePlacer'
+        - '/Script/ShooterGame.CustomActorList'
+    - '/Script/Engine.LevelScriptActor'
+    - '/Script/Engine.MatineeActor'
+    - '/Script/Engine.Note'
+    - '/Script/Engine.Light':
+        - '/Script/Engine.DirectionalLight'
+        - '/Script/Engine.PointLight'
+        - '/Script/Engine.SpotLight'
+    - '/Script/Engine.Pawn':
+        - '/Script/Engine.Character':
+            - '/Script/ShooterGame.PrimalCharacter':
+                - '/Script/ShooterGame.ShooterCharacter'
+                - '/Script/ShooterGame.PrimalDinoCharacter':
+                    - '/Script/ShooterGame.PrimalRaft'
+                    - '/Script/ShooterGame.PrimalWheeledVehicleCharacter'
+        - '/Script/Engine.WheeledVehicle'
+    - '/Script/Engine.PlayerCameraManager':
+        - '/Script/ShooterGame.ShooterPlayerCameraManager'
+    - '/Script/ShooterGame.SaveGameActor':
+        - '/Script/ShooterGame.SaveGameActorTickable'
+    - '/Script/Engine.StaticMeshActor'
+    - '/Script/Engine.SkeletalMeshActor'
+    - '/Script/Engine.SplineActor'
+    - '/Script/Engine.ReflectionCapture':
+        - '/Script/Engine.BoxReflectionCapture'
+        - '/Script/Engine.PlaneReflectionCapture'
+        - '/Script/Engine.SphereReflectionCapture'
+    - '/Script/Engine.TargetPoint'
+    - '/Script/Engine.PlayerStart'
+    - '/Script/ShooterGame.BiomeZoneSettings'
+    - '/Script/ShooterGame.DroppedItem': # Done
+        - '/Script/ShooterGame.DroppedItemEgg'
+        - '/Script/ShooterGame.DroppedItemLowQuality':
+            - '/Script/ShooterGame.DroppedItemTorch'
+    - '/Script/ShooterGame.DestructibleActor':
+        - '/Script/ShooterGame.DestroyedMeshActor'
+        - '/Script/ShooterGame.FadingDestructibleActor'
+    - '/Script/ShooterGame.GroundClutterLayerActor'
+    - '/Script/ShooterGame.HordeCrateManager'
+    - '/Script/ShooterGame.PrimalTargetableActor': # Done
+        - '/Script/ShooterGame.PrimalStructure':
+            - '/Script/ShooterGame.PrimalStructureBearTrap'
+            - '/Script/ShooterGame.PrimalStructureDoor':
+                - '/Script/ShooterGame.PrimalStructureSkeletalDoor'
+            - '/Script/ShooterGame.PrimalStructureElevatorPlatform'
+            - '/Script/ShooterGame.PrimalStructureExplosive':
+                - '/Script/ShooterGame.PrimalStructureExplosiveTransGPS'
+                - '/Script/ShooterGame.PrimalStructureTripwire'
+            - '/Script/ShooterGame.PrimalStructureItemContainer':
+                - '/Script/ShooterGame.PrimalStructureElevatorTrack'
+                - '/Script/ShooterGame.PrimalStructureItemContainer_CropPlot':
+                    - '/Script/ShooterGame.PrimalStructureItemContainer_CropPlot_VisualItems'
+                - '/Script/ShooterGame.PrimalStructureItemContainer_SupplyCrate':
+                    - '/Script/ShooterGame.PrimalStructureItemContainer_HordeCrate'
+                - '/Script/ShooterGame.PrimalStructureItemContainer_VisualItems'
+                - '/Script/ShooterGame.PrimalStructureKeypad'
+                - '/Script/ShooterGame.PrimalStructureMovingContainer'
+                - '/Script/ShooterGame.PrimalStructureSeating':
+                    - '/Script/ShooterGame.PrimalStructureBed'
+                    - '/Script/ShooterGame.PrimalStructureSeatingMusic'
+                    - '/Script/ShooterGame.PrimalStructureTurretBallista'
+                - '/Script/ShooterGame.PrimalStructureTurret':
+                    - '/Script/ShooterGame.PrimalStructureTurretPlant'
+                - '/Script/ShooterGame.PrimalStructureUnderwaterBase'
+            - '/Script/ShooterGame.PrimalStructureLadder':
+                - '/Script/ShooterGame.PrimalStructurePortableLadder'
+            - '/Script/ShooterGame.PrimalStructureSeaMine'
+            - '/Script/ShooterGame.PrimalStructureSign'
+            - '/Script/ShooterGame.PrimalStructureWaterPipe'
+    - '/Script/ShooterGame.ShooterProjectile': # Done
+        - '/Script/ShooterGame.PrimalProjectileArrow':
+            - '/Script/ShooterGame.PrimalProjectileBoomerang'
+            - '/Script/ShooterGame.PrimalProjectileNetGun'
+        - '/Script/ShooterGame.PrimalProjectileDilo'
+        - '/Script/ShooterGame.PrimalProjectileFlare'
+        - '/Script/ShooterGame.PrimalProjectileGrapplingHook'
+        - '/Script/ShooterGame.PrimalProjectileSpiderAcid'
+        - '/Script/ShooterGame.ShooterProjectile_Swarm'
+    - '/Script/ShooterGame.ShooterWeapon': # Done
+        - '/Script/ShooterGame.ShooterWeapon_ChainSaw'
+        - '/Script/ShooterGame.ShooterWeapon_FlameThrower'
+        - '/Script/ShooterGame.ShooterWeapon_Instant':
+            - '/Script/ShooterGame.ShooterWeapon_InstantPenetrating'
+        - '/Script/ShooterGame.ShooterWeapon_Melee':
+            - '/Script/ShooterGame.PrimalWeaponElectronicBinoculars'
+            - '/Script/ShooterGame.PrimalWeaponGPS'
+            - '/Script/ShooterGame.ShooterWeapon_Climb'
+            - '/Script/ShooterGame.ShooterWeapon_Whip'
+        - '/Script/ShooterGame.ShooterWeapon_Placer':
+            - '/Script/ShooterGame.ShooterWeapon_PlacerTransGPS'
+        - '/Script/ShooterGame.ShooterWeapon_Projectile':
+            - '/Script/ShooterGame.PrimalWeaponBow':
+                - '/Script/ShooterGame.PrimalWeaponBoomerang'
+            - '/Script/ShooterGame.PrimalWeaponGrapplingHook'
+            - '/Script/ShooterGame.PrimalWeaponGrenade'
+    - '/Script/ShooterGame.TargetArea'
+    - '/Script/ShooterGame.TerrainActor'
+- '/Script/Engine.ActorComponent':
+    - '/Script/Engine.SceneComponent':
+        - '/Script/Engine.PrimitiveComponent':
+            - '/Script/Engine.MeshComponent':
+                - '/Script/Engine.SkinnedMeshComponent':
+                    - '/Script/Engine.SkeletalMeshComponent'
+                - '/Script/Engine.StaticMeshComponent':
+                    - '/Script/Engine.InstancedStaticMeshComponent':
+                        - '/Script/Engine.HierarchicalInstancedStaticMeshComponent'
+            - '/Script/Engine.ParticleSystemComponent'
+            - '/Script/Engine.ReflectionCaptureComponent':
+                - '/Script/Engine.BoxReflectionCaptureComponent'
+            - '/Script/Engine.ShapeComponent':
+                - '/Script/Engine.CapsuleComponent'
+                - '/Script/Engine.BoxComponent'
+    - '/Script/Engine.MovementComponent':
+        - '/Script/Engine.NavMovementComponent':
+            - '/Script/Engine.PawnMovementComponent':
+                - '/Script/Engine.CharacterMovementComponent':
+                    - '/Script/ShooterGame.ShooterCharacterMovement'
+    - '/Script/ShooterGame.PrimalInventoryComponent':
+        - '/Script/ShooterGame.PrimalInventoryComponent_Static'
+    - '/Script/ShooterGame.PrimalCharacterStatusComponent':
+        - '/Script/ShooterGame.PrimalDinoStatusComponent'
+        - '/Script/ShooterGame.PrimalPlayerStatusComponent'
+    - '/Script/ShooterGame.PrimalHarvestingComponent'
+- '/Script/Engine.AnimInstance':
+    - '/Script/Engine.VehicleAnimInstance'
+- '/Script/Engine.AnimNotify'
+- '/Script/Engine.AnimNotifyState'
+- '/Script/Engine.AnimationAsset':
+    - '/Script/Engine.BlendSpaceBase':
+        - '/Script/Engine.BlendSpace':
+            - '/Script/Engine.AimOffsetBlendSpace'
+        - '/Script/Engine.BlendSpace1D':
+            - '/Script/Engine.AimOffsetBlendSpace1D'
+    - '/Script/Engine.AnimSequenceBase':
+        - '/Script/Engine.AnimCompositeBase':
+            - '/Script/Engine.AnimMontage'
+        - '/Script/Engine.AnimSequence'
+- '/Script/Engine.BlueprintFunctionLibrary'
+- '/Script/Engine.CameraShake'
+- '/Script/Engine.CurveBase':
+    - '/Script/Engine.CurveFloat'
+- '/Script/Engine.DamageType':
+    - '/Script/ShooterGame.ShooterDamageType'
+- '/Script/Engine.DataAsset':
+    - '/Script/AIModule.BlackboardData'
+    - '/Script/Engine.TireType'
+- '/Script/Engine.FoliageType':
+    - '/Script/Engine.FoliageType_InstancedStaticMesh'
+- '/Script/Engine.Font'
+- '/Script/Engine.InterpData'
+- '/Script/Engine.LandscapeLayerInfoObject'
+- '/Script/Engine.MaterialFunction'
+- '/Script/Engine.MaterialInterface':
+    - '/Script/Engine.Material'
+    - '/Script/Engine.MaterialInstance':
+        - '/Script/Engine.MaterialInstanceConstant'
+- '/Script/Engine.MaterialParameterCollection'
+- '/Script/Engine.ParticleSystem'
+- '/Script/Engine.PhysicalMaterial'
+- '/Script/Engine.PhysicsAsset'
+- '/Script/Engine.ReverbEffect'
+- '/Script/Engine.Rig'
+- '/Script/Engine.SkeletalMesh':
+    - '/Script/Engine.DestructibleMesh'
+- '/Script/Engine.Skeleton'
+- '/Script/Engine.SoundAttenuation'
+- '/Script/Engine.SoundBase':
+    - '/Script/Engine.SoundCue'
+    - '/Script/Engine.SoundWave'
+- '/Script/Engine.SubsurfaceProfile'
+- '/Script/Engine.Texture':
+    - '/Script/Engine.Texture2D':
+        - '/Script/Engine.TextureLightProfile'
+    - '/Script/Engine.TextureCube'
+    - '/Script/Engine.TextureRenderTarget':
+        - '/Script/Engine.TextureRenderTarget2D'
+        - '/Script/Engine.TextureRenderTargetCube'
+    - '/Script/MediaAssets.MediaTexture'
+- '/Script/Engine.VectorField':
+    - '/Script/Engine.VectorFieldStatic'
+- '/Script/Engine.VehicleWheel'
+- '/Script/MediaAssets.MediaPlayer'
+- '/Script/ShooterGame.FogOfWar'
+- '/Script/ShooterGame.NPCSpawnEntriesContainer'
+- '/Script/ShooterGame.ShooterImpactEffect'
+- '/Script/ShooterGame.PrimalItem':
+    - '/Script/ShooterGame.PrimalItem_Dye'
+    - '/Script/ShooterGame.PrimalItem_Radio'
+- '/Script/ShooterGame.PrimalBuffPersistentData'
+- '/Script/ShooterGame.PrimalEngramEntry'
+- '/Script/ShooterGame.PrimalClimbingSettings'
+- '/Script/ShooterGame.PrimalColorSet'
+- '/Script/ShooterGame.PrimalDinoSettings'
+- '/Script/ShooterGame.PrimalDinoEntry'
+- '/Script/ShooterGame.PrimalGameData'
+- '/Script/ShooterGame.PrimalGlobals'
+- '/Script/ShooterGame.PrimalPlayerData'
+- '/Script/ShooterGame.PrimalStructureSettings'
+- '/Script/ShooterGame.PrimalSupplyCrateItemSet'
+- '/Script/ShooterGame.PrimalSupplyCrateItemSets'
+- '/Script/ShooterGame.PrimalAIState':
+    - '/Script/ShooterGame.PrimalAIStateBPBase'
+    - '/Script/ShooterGame.PrimalAIStateDinoMeleeState':
+        - '/Script/ShooterGame.PrimalAIStateDinoFlyerGrab'
+        - '/Script/ShooterGame.PrimalAIStateDinoGrabAndReleaseState'
+    - '/Script/ShooterGame.PrimalAIStateDinoRangedState':
+        - '/Script/ShooterGame.PrimalAIStateDinoSpiderRangedWebState'
+        - '/Script/ShooterGame.PrimalAIStateDinoSpineyLizardTailRangeState'
+    - '/Script/ShooterGame.PrimalAIStateDinoSpiderMinions'
+    - '/Script/ShooterGame.PrimalAIStateDinoSpiderRangedAcidState'
+- '/Script/ShooterGame.RadialSelectorHUD':
+    - '/Script/ShooterGame.RadialSelectorHUD_Inventory'
+    - '/Script/ShooterGame.RadialSelectorHUD_MultiUse'
+    - '/Script/ShooterGame.RadialSelectorHUD_PlayerAction'
+- '/Script/ShooterGame.TerrainGenerator'
+- '/Script/UMG.Visual':
+    - '/Script/UMG.Widget':
+        - '/Script/UMG.UserWidget':
+            - '/Script/ShooterGame.DataListEntryWidget'
+            - '/Script/ShooterGame.HUDElementBarWidget'
+            - '/Script/ShooterGame.HUDStatusBarsWidget'
+            - '/Script/ShooterGame.ToolTipWidget':
+                - '/Script/ShooterGame.PrimalDinoToolTipWidget'
+                - '/Script/ShooterGame.TooltipSmartLayoutWidget':
+                    - '/Script/ShooterGame.DinoListItemTooltip'
+                - '/Script/ShooterGame.PrimalStructureToolTipWidget'
+                - '/Script/ShooterGame.PrimalItemInventoryToolTipWidget'
+                - '/Script/ShooterGame.PrimalItemToolTipWidget'
+                - '/Script/ShooterGame.TargetingInfoToolTipWidget'
+            - '/Script/ShooterGame.ContextMenu':
+                - '/Script/ShooterGame.ContextMenu_InventorySort'
+                - '/Script/ShooterGame.ContextMenu_PrimalItem'
+            - '/Script/ShooterGame.ContextMenuItem':
+                - '/Script/ShooterGame.ContextMenuItem_Sort'
+                - '/Script/ShooterGame.ContextMenuItem_Spinner'
+            - '/Script/ShooterGame.UI_Compass'
+            - '/Script/ShooterGame.CharacterViewPanelWidget'
+            - '/Script/ShooterGame.StatWidget'
+            - '/Script/ShooterGame.GamepadButtonLegendWidget'
+            - '/Script/ShooterGame.PrimalUI':
+                - '/Script/ShooterGame.PlayerHUDUI'
+                - '/Script/ShooterGame.InventoryPanelWidget'
+                - '/Script/ShooterGame.PrimalSubMenuUI':
+                    - '/Script/ShooterGame.UI_DinoOrderGroups'
+                    - '/Script/ShooterGame.UI_TribeManager'
+                    - '/Script/ShooterGame.UI_SurvivorProfile'
+                    - '/Script/ShooterGame.UI_Inventory'
+                    - '/Script/ShooterGame.UI_OptionsMenu'
+                    - '/Script/ShooterGame.UI_EngramsMenu'
+                - '/Script/ShooterGame.UI_AdminMangment'
+                - '/Script/ShooterGame.UI_AllPlayersList'
+                - '/Script/ShooterGame.UI_ChangeTransponderFreqencyEntry'
+                - '/Script/ShooterGame.UI_ChatBox'
+                - '/Script/ShooterGame.UI_ChatMessage'
+                - '/Script/ShooterGame.UI_Cooking'
+                - '/Script/ShooterGame.UI_DepthOfFieldMenu'
+                - '/Script/ShooterGame.UI_DyeItem'
+                - '/Script/ShooterGame.UI_GenericConfirmationDialog'
+                - '/Script/ShooterGame.UI_Hairstyle'
+                - '/Script/ShooterGame.UI_HelpPage'
+                - '/Script/ShooterGame.UI_HostSession'
+                - '/Script/ShooterGame.UI_Hub'
+                - '/Script/ShooterGame.UI_HudOverlay'
+                - '/Script/ShooterGame.UI_ListCharacterData'
+                - '/Script/ShooterGame.UI_ListSessions':
+                    - '/Script/ShooterGame.UI_ClusterServersListSessions'
+                - '/Script/ShooterGame.UI_MainMenu'
+                - '/Script/ShooterGame.UI_MapMarkersEntry'
+                - '/Script/ShooterGame.UI_MultiUse'
+                - '/Script/ShooterGame.UI_Notification'
+                - '/Script/ShooterGame.UI_PaintingsList'
+                - '/Script/ShooterGame.UI_PauseMenu'
+                - '/Script/ShooterGame.UI_PinEntry'
+                - '/Script/ShooterGame.UI_ProceduralSettings'
+                - '/Script/ShooterGame.UI_SavePainting'
+                - '/Script/ShooterGame.UI_ServerBroadcastMessage'
+                - '/Script/ShooterGame.UI_Spawn'
+                - '/Script/ShooterGame.UI_SpawnPoint'
+                - '/Script/ShooterGame.UI_SteamInventoryStatusPopup'
+                - '/Script/ShooterGame.UI_Subtitles'
+                - '/Script/ShooterGame.UI_TextEntry'
+                - '/Script/ShooterGame.UI_TribeWarEntry'
+                - '/Script/ShooterGame.UI_Tutorial'
+                - '/Script/ShooterGame.HUDCustomStatusWidget'
+                - '/Script/ShooterGame.DataListEntryButton_DyeResources'
+                - '/Script/ShooterGame.DataListEntryEngramList'
+                - '/Script/ShooterGame.DinoAncestryEntryWidget'
+                - '/Script/ShooterGame.InventoryArkCreaturesPanel'
+                - '/Script/ShooterGame.InventoryDinoAncestryPanel'
+                - '/Script/ShooterGame.InventoryStatsPanel'
+                - '/Script/ShooterGame.StatsPanelWidget':
+                    - '/Script/ShooterGame.StatsPanelWidget_Character'
+                    - '/Script/ShooterGame.StatsPanelWidget_Obelisk'
+                    - '/Script/ShooterGame.StatsPanelWidget_Structure'
+                - '/Script/ShooterGame.StructureStatWidget'
+                - '/Script/ShooterGame.BaseSelectableButtonWidget':
+                    - '/Script/ShooterGame.DataListEntryButton_HostSession'
+                    - '/Script/ShooterGame.DataListEntryButton_ListSession'
+                    - '/Script/ShooterGame.DataListEntryButton_MainMenu'
+                    - '/Script/ShooterGame.TribeManagerListButton'
+                    - '/Script/ShooterGame.TribeMemberButtonWidget'
+                    - '/Script/ShooterGame.TribeWarButtonWidget'
+                    - '/Script/ShooterGame.DinoListButtonWidget'
+                - '/Script/ShooterGame.DyeRegionButtonWidget'
+- '/Script/Engine.World'
+- '/Script/Engine.StaticMesh'
+
+# Unknown, need placing
+- '/Engine/Transient.REINST_ElementWall_Horde_C_8303'
+- '/Script/CoreUObject.Interface'
+- '/Script/ShooterGame.PrimalWorldSettingsEventOverrides'
+- '/Script/ShooterGame.MissionType'
+- '/Script/ShooterGame.PointOfInterestManagerList'
+- '/Script/ShooterGame.PointOfInterestActor'
+- '/Script/Engine.AudioComponent'

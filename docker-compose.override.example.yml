@@ -4,10 +4,19 @@ services:
   django: &django
     volumes:
       # set /path/to/ark to the correct path for your ARK install.
-      # this is the same as purlovia/livedata/game
+      # this is the same as purlovia/livedata
       - /path/to/ark:/ark
+      # set /path/to/obselisk to the correct path for your Obselisk repo
+      # this is the same as purlovia/output
+      - /path/to/obselisk:/obelisk
 
-  celeryworker:
+  manage:
+    <<: *django
+
+  test:
+    <<: *django
+
+  celery:
     <<: *django
 
   celerybeat:

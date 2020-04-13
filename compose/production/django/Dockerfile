@@ -10,6 +10,8 @@ RUN apt-get update \
   && apt-get install -y libpq-dev \
   # Translations dependencies
   && apt-get install -y gettext \
+  # purlovia
+  && apt-get install -y git openssh-client lib32gcc1 \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
@@ -49,5 +51,7 @@ COPY --chown=django:django . /app
 USER django
 
 WORKDIR /app
+
+VOLUME /ark /obelisk /logs
 
 ENTRYPOINT ["/entrypoint"]
