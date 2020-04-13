@@ -1,12 +1,11 @@
-import logging
 import ue.context
 from automate.run import run
-from celery.utils.log import get_task_logger
-
-from config import get_global_config, DO_SIMPLE_RUN
-from config.celery_app import app
 from celery import current_app
+from celery.utils.log import get_task_logger
 from django.core.cache import cache
+
+from config import DO_SIMPLE_RUN, get_global_config
+from config.celery_app import app
 
 logger = get_task_logger(__name__)
 
@@ -21,6 +20,8 @@ class AlreadyRunning(Exception):
 
 
 def get_running_task():
+    # Django not loaded until here
+    # pylint: disable=import-outside-toplevel
     from django_celery_results.models import TaskResult
 
     task = (

@@ -12,4 +12,5 @@ class User(AbstractUser):
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
 
-User.admin_app_label = "auth"
+
+User.admin_app_label = "auth"  # type: ignore

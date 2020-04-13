@@ -6,4 +6,8 @@
     "python.sortImports.args": [
         "--settings-path=${workspaceFolder}/setup.cfg"
     ],
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "79"
+    ],
 }

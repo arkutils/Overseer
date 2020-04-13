@@ -1,0 +1,7 @@
+{% load humanize i18n %}
+
+<p>
+    <strong>{% trans "Links" %}</strong>:
+    <a href="{% url 'admin:django_celery_results_taskresult_change' task.id %}">{% trans "Admin" %}</a> |
+    <a href="{{ flower_url }}/task/{{ task.task_id }}">{% trans "Flower" %}</a>
+</p>

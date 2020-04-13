@@ -1,15 +1,13 @@
-from datetime import timedelta
 from typing import Optional
-from celery import current_app
 
 from admin_tools.dashboard.modules import DashboardModule
 from django.conf import settings
-from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_celery_results.models import TaskResult
+
 from overseer.purlovia.tasks import (
-    PURLOVIA_TASK_NAME,
     PURLOVIA_QUEUE_TASK_NAME,
+    PURLOVIA_TASK_NAME,
     get_running_task,
 )
 

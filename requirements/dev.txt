@@ -12,7 +12,7 @@ appdirs==1.4.3            # via black
 argon2-cffi==19.2.0       # via -r requirements/in/base.in
 asgiref==3.2.7            # via django
 astroid==2.3.3            # via pylint, pylint-celery
-attrs==19.3.0             # via black, pytest
+attrs==19.3.0             # via black, flake8-bugbear, pytest
 babel==2.8.0              # via sphinx
 backcall==0.1.0           # via ipython
 bandit==1.6.2             # via -r requirements/in/dev.in
@@ -47,8 +47,12 @@ docutils==0.16            # via sphinx
 entrypoints==0.3          # via flake8
 factory-boy==2.12.0       # via -r requirements/in/dev.in
 faker==4.0.2              # via factory-boy
+flake8-bugbear==20.1.4    # via -r requirements/in/dev.in
+flake8-builtins==1.5.2    # via -r requirements/in/dev.in
+flake8-commas==2.0.0      # via -r requirements/in/dev.in
+flake8-comprehensions==3.2.2  # via -r requirements/in/dev.in
 flake8-isort==2.9.1       # via -r requirements/in/dev.in
-flake8==3.7.9             # via -r requirements/in/dev.in, flake8-isort
+flake8==3.7.9             # via -r requirements/in/dev.in, flake8-bugbear, flake8-builtins, flake8-commas, flake8-comprehensions, flake8-isort
 flower==0.9.4             # via -r requirements/in/base.in
 gitdb==4.0.4              # via gitpython
 gitpython==3.1.1          # via bandit
@@ -60,7 +64,7 @@ ipython-genutils==0.2.0   # via traitlets
 ipython==7.13.0           # via ipdb
 isort[pyproject]==4.3.21  # via flake8-isort, pylint
 jedi==0.16.0              # via ipython
-jinja2==2.11.1            # via sphinx
+jinja2==2.11.2            # via sphinx
 kombu==4.6.8              # via celery
 lazy-object-proxy==1.4.3  # via astroid
 markupsafe==1.1.1         # via jinja2
@@ -81,6 +85,7 @@ pluggy==0.13.1            # via pytest
 prompt-toolkit==3.0.5     # via ipython
 psutil==5.6.7             # via purlovia
 psycopg2==2.8.5           # via -r requirements/in/base.in
+ptvsd==4.3.2              # via -r requirements/in/dev.in
 ptyprocess==0.6.0         # via pexpect
 git+https://github.com/AngellusMortis/Purlovia.git@feature/config_root_logger#egg=purlovia  # via -r requirements/in/base.in
 py==1.8.1                 # via pytest
@@ -139,8 +144,6 @@ wcwidth==0.1.9            # via prompt-toolkit, pytest
 werkzeug==1.0.1           # via -r requirements/in/dev.in
 whitenoise==5.0.1         # via -r requirements/in/base.in
 wrapt==1.11.2             # via astroid
-
-ptvsd
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

@@ -28,7 +28,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
             "users:detail", kwargs={"username": self.request.user.username}
         )
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         return User.objects.get(username=self.request.user.username)
 
     def form_valid(self, form):
@@ -45,7 +45,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
     permanent = False
 
-    def get_redirect_url(self):
+    def get_redirect_url(self, *args, **kwargs):
         return reverse(
             "users:detail", kwargs={"username": self.request.user.username}
         )

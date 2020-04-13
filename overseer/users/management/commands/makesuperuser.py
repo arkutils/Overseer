@@ -6,7 +6,7 @@ User = get_user_model()
 
 @click.command()
 @click.option("--username", prompt=True)
-def command(username):
+def command(username: str):
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:

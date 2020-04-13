@@ -1,4 +1,4 @@
-from .base import *  # noqa
+from .base import *  # pylint: disable=unused-wildcard-import,wildcard-import # noqa
 from .base import env
 
 # GENERAL
@@ -114,8 +114,10 @@ LOGGING = {
     },
     "formatters": {
         "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
+            "format": (
+                "%(levelname)s %(asctime)s %(module)s "
+                "%(process)d %(thread)d %(message)s"
+            )
         }
     },
     "handlers": {

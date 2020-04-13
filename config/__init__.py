@@ -25,7 +25,7 @@ config: Optional[ConfigFile] = None
 
 def get_global_config() -> ConfigFile:
     _ensure_loaded()
-    assert config is not None
+    assert config is not None  # nosec
     return config
 
 
