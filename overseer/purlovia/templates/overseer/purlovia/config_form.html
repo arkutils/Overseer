@@ -5,6 +5,7 @@
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/purlovia/config.css' %}" />
     {{ media.css }}
 {% endblock %}
 
@@ -17,6 +18,9 @@
 {% endblock %}
 
 {% block bodyclass %}change-list{% endblock %}
+
+{% block content_title %}<div id="page_title">{% if title %}<h1>{{ title }}</h1>{% endif %}<a class="small" href="{% url 'admin:purlovia_config_history' '1' %}">{% trans 'See History'%}</a></div>{% endblock %}
+
 
 {% block content %}
     <div id="content-main">
