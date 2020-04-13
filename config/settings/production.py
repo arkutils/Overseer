@@ -16,21 +16,6 @@ DATABASES["default"]["CONN_MAX_AGE"] = env.int(  # noqa F405
     "CONN_MAX_AGE", default=60
 )
 
-# CACHES
-# ------------------------------------------------------------------------------
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": env("REDIS_URL"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            # Mimicing memcache behavior.
-            # http://niwinz.github.io/django-redis/latest/#_memcached_exceptions_behavior
-            "IGNORE_EXCEPTIONS": True,
-        },
-    }
-}
-
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
@@ -144,53 +129,17 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
-        "debug_file_handler": {
-            "class": "utils.log.CompressedRotatingFileHandler",
-            "level": "DEBUG",
-            "formatter": "verbose",
-            "filename": "/logs/debug.log",
-            "maxBytes": 52428800,  # 50MB
-            "backupCount": 5,
-            "encoding": "utf8",
-        },
-        "info_file_handler": {
-            "class": "utils.log.CompressedRotatingFileHandler",
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
             "level": "INFO",
             "formatter": "verbose",
-            "filename": "/logs/info.log",
-            "maxBytes": 10485760,  # 10MB
-            "backupCount": 10,
-            "encoding": "utf8",
-        },
-        "warning_file_handler": {
-            "class": "utils.log.CompressedRotatingFileHandler",
-            "level": "WARNING",
-            "formatter": "verbose",
-            "filename": "/logs/warning.log",
-            "maxBytes": 4194304,  # 4MB
-            "backupCount": 10,
-            "encoding": "utf8",
-        },
-        "error_file_handler": {
-            "class": "utils.log.CompressedRotatingFileHandler",
-            "level": "ERROR",
-            "formatter": "verbose",
-            "filename": "/logs/error.log",
-            "maxBytes": 2097152,  # 2MB
+            "filename": "/logs/django.log",
+            "maxBytes": 52428800,  # 50MB
             "backupCount": 10,
             "encoding": "utf8",
         },
     },
-    "root": {
-        "level": "DEBUG",
-        "handlers": [
-            "console",
-            "debug_file_handler",
-            "info_file_handler",
-            "warning_file_handler",
-            "error_file_handler",
-        ],
-    },
+    "root": {"level": "INFO", "handlers": ["console", "file"]},
     "loggers": {
         "django.request": {
             "handlers": [],

@@ -18,6 +18,7 @@ OVERRIDE_FILENAME = "/app/purlovia/overrides.yaml"
 LOGGING_FILENAME = "/app/purlovia/logging.yaml"
 HIERARCHY_FILENAME = "/app/purlovia/hierarchy.yaml"
 ROOT_LOGGER = "celery.task."
+DO_SIMPLE_RUN = True
 
 config: Optional[ConfigFile] = None
 

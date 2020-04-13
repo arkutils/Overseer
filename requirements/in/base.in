@@ -12,6 +12,7 @@ django-model-utils
 django-redis
 django-redis
 django<3.1
+python-redis-lock[django]
 whitenoise
 
 # Celery

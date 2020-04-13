@@ -47,6 +47,7 @@ services:
 
   redis:
     image: redis:5.0
+    command: redis-server --appendonly yes
 
   celery:
     <<: *django

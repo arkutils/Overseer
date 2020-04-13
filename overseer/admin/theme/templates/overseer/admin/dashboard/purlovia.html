@@ -1,18 +1,28 @@
-{% load humanize %}
+{% load humanize i18n %}
 
 {% if not module.is_empty %}
     <div id="module_{{ module.id }}" class="{{ module.render_css_classes }}">
         {% if module.show_title and module.title %}<h2>{% if module.title_url %}<a href="{{ module.title_url }}">{{ module.title|capfirst }}</a>{% else %}{{ module.title|capfirst }}{% endif %}</h2>{% endif %}
         <div class="dashboard-module-content">
             {% if not module.last_started and not module.last_completed %}
-                Purlovia has not been ran yet
+                <p>{% trans "Purlovia has not been ran yet" %}</p>
             {% else %}
                 {% if module.last_completed %}
-                    <p>Purlovia last run was <strong>{{ module.last_completed.status|lower }}</strong> {{ module.last_completed.date_done|naturaltime }}</p>
+                    <div>
+                        <p><strong>{% trans "Last run" %}</strong>: <strong>{{ module.last_completed.status|lower }}</strong> {{ module.last_completed.date_done|naturaltime }}</p>
+                        {% include "overseer/admin/dashboard/snippets/links.html" with flower_url=module.flower_url task=module.last_completed %}
+                    </div>
                 {% endif %}
                 {% if module.last_started %}
-                    <p>Purlovia was started {{ module.last_started.date_done|naturaltime }}.</p>
+                    <div>
+                        <p><strong>{% trans "Started" %}</strong>: {{ module.last_started.date_done|naturaltime }}</p>
+                        {% include "overseer/admin/dashboard/snippets/links.html" with flower_url=module.flower_url task=module.last_started %}
+                    </div>
                 {% endif %}
+            {% endif %}
+
+            {% if not module.last_started and module.can_start %}
+                <p><a href="{% url 'admin:start_task' module.task_name %}">{% trans "Manually Start Purlovia" %}</a></p>
             {% endif %}
         </div>
     </div>

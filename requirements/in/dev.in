@@ -11,6 +11,8 @@ pylint-django
 # debugging
 django-debug-toolbar
 ipdb
+ptvsd
+werkzeug
 
 # testing
 django-coverage-plugin
@@ -23,5 +25,4 @@ pytest-cov
 pytest-dotenv
 
 sphinx
-werkzeug
 pip-tools

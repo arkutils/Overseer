@@ -26,7 +26,7 @@ django-compressor==2.4    # via -r requirements/in/base.in
 django-crispy-forms==1.9.0  # via -r requirements/in/base.in
 django-environ==0.4.5     # via -r requirements/in/base.in
 django-model-utils==4.0.0  # via -r requirements/in/base.in
-django-redis==4.11.0      # via -r requirements/in/base.in
+django-redis==4.11.0      # via -r requirements/in/base.in, python-redis-lock
 django-timezone-field==4.0  # via django-celery-beat
 django==3.0.5             # via -r requirements/in/base.in, django-allauth, django-appconf, django-celery-beat, django-model-utils, django-redis, django-timezone-field
 flower==0.9.4             # via -r requirements/in/base.in
@@ -42,12 +42,13 @@ pycparser==2.20           # via cffi
 pydantic==1.4             # via purlovia
 python-crontab==2.4.1     # via django-celery-beat
 python-dateutil==2.8.1    # via python-crontab
+python-redis-lock[django]==3.5.0  # via -r requirements/in/base.in
 python-slugify==4.0.0     # via -r requirements/in/base.in
 python3-openid==3.1.0     # via django-allauth
 pytz==2019.3              # via celery, django, django-timezone-field, flower
 pyyaml==5.3.1             # via purlovia
 rcssmin==1.0.6            # via django-compressor
-redis==3.4.1              # via django-redis
+redis==3.4.1              # via django-redis, python-redis-lock
 requests-oauthlib==1.3.0  # via django-allauth
 requests==2.23.0          # via django-allauth, purlovia, requests-oauthlib
 rjsmin==1.1.0             # via django-compressor

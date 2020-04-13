@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -39,7 +40,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
+        "BACKEND": "redis_lock.django_cache.RedisCache",
         "LOCATION": env("CACHE_URL"),
         "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},
     }
@@ -69,6 +70,8 @@ ADMIN_APPS = [
     "admin_tools.theming",
     "admin_tools.menu",
     "admin_tools.dashboard",
+    "overseer.admin.apps.OverseerAdminConfig",
+    # "django.contrib.admin",
 ]
 DJANGO_APPS = [
     "django.contrib.auth",
@@ -78,7 +81,6 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
-    "overseer.admin.apps.OverseerAdminConfig",
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
@@ -95,6 +97,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "overseer.users.apps.UsersConfig",
     "overseer.purlovia",
+    "overseer.celery",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = ADMIN_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -288,7 +291,7 @@ if USE_TZ:
 CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = "django-db"
 CELERY_RESULT_EXTENDED = True
-CELERY_RESULT_EXPIRES = 7
+CELERY_RESULT_EXPIRES = timedelta(days=7)
 CELERY_CACHE_BACKEND = "default"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
@@ -336,3 +339,4 @@ ADMIN_TOOLS_INDEX_DASHBOARD = "overseer.admin.dashboard.OverseerIndexDashboard"
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = (
     "overseer.admin.dashboard.OverseerAppIndexDashboard"
 )
+FLOWER_BASE_URL = env("FLOWER_BASE_URL")

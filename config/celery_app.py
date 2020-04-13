@@ -1,6 +1,10 @@
 import os
 
 from celery import Celery
+from celery.signals import after_setup_task_logger, task_postrun
+from django.core.cache import cache
+
+from overseer.utils.logging import RedisTaskLogger
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
@@ -15,3 +19,34 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
+
+
+@after_setup_task_logger.connect
+def setup_loggers(logger, *args, **kwargs):
+    redis_handler = RedisTaskLogger()
+
+    logger.addHandler(redis_handler)
+
+
+@task_postrun.connect
+def after_task(task_id, task, *args, **kwargs):
+    # Django not loaded until here
+    from overseer.celery.models import TaskOutput
+    from django_celery_results.models import TaskResult
+
+    if not task.name.startswith("overseer"):
+        return
+
+    output = []
+    with cache.lock(f"logger_lock.{task_id}"):
+        cache_key = f"logger.{task_id}"
+
+        output = cache.get(cache_key)
+        cache.delete(cache_key)
+
+    try:
+        task_result = TaskResult.objects.get(task_id=task_id)
+    except TaskResult.DoesNotExist:
+        pass
+
+    TaskOutput.objects.create(task=task_result, output="\n".join(output))
