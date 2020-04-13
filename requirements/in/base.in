@@ -11,7 +11,9 @@ django-environ
 django-model-utils
 django-redis
 django-redis
+django-reversion
 django<3.1
+djangocodemirror
 python-redis-lock[django]
 whitenoise
 
@@ -24,5 +26,4 @@ pillow
 psycopg2 --no-binary psycopg2
 python-slugify
 
-git+https://github.com/AngellusMortis/Purlovia.git@feature/config_root_logger#egg=purlovia
-# git+https://github.com/arkutils/Purlovia.git@master#egg=purlovia
+git+https://github.com/arkutils/Purlovia.git@master#egg=purlovia

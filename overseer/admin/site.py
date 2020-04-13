@@ -35,3 +35,12 @@ class OverseerAdminSite(AdminSite):
         ]
 
         return overseer_urls + urls
+
+    def each_context(self, request):
+        # Django not loaded until here
+        # pylint: disable=import-outside-toplevel
+        from overseer.purlovia.models import Config
+
+        Config.load()
+
+        return super().each_context(request)

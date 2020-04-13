@@ -27,8 +27,10 @@ django-crispy-forms==1.9.0  # via -r requirements/in/base.in
 django-environ==0.4.5     # via -r requirements/in/base.in
 django-model-utils==4.0.0  # via -r requirements/in/base.in
 django-redis==4.11.0      # via -r requirements/in/base.in, python-redis-lock
+django-reversion==3.0.7   # via -r requirements/in/base.in
 django-timezone-field==4.0  # via django-celery-beat
-django==3.0.5             # via -r requirements/in/base.in, django-allauth, django-appconf, django-celery-beat, django-model-utils, django-redis, django-timezone-field
+django==3.0.5             # via -r requirements/in/base.in, django-allauth, django-appconf, django-celery-beat, django-model-utils, django-redis, django-reversion, django-timezone-field, djangocodemirror
+djangocodemirror==2.1.0   # via -r requirements/in/base.in
 flower==0.9.4             # via -r requirements/in/base.in
 humanize==0.5.1           # via flower
 idna==2.9                 # via requests
@@ -37,7 +39,7 @@ oauthlib==3.1.0           # via requests-oauthlib
 pillow==7.1.1             # via -r requirements/in/base.in
 psutil==5.6.7             # via purlovia
 psycopg2==2.8.5           # via -r requirements/in/base.in
-git+https://github.com/AngellusMortis/Purlovia.git@feature/config_root_logger#egg=purlovia  # via -r requirements/in/base.in
+git+https://github.com/arkutils/Purlovia.git@master#egg=purlovia  # via -r requirements/in/base.in
 pycparser==2.20           # via cffi
 pydantic==1.4             # via purlovia
 python-crontab==2.4.1     # via django-celery-beat

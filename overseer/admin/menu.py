@@ -19,11 +19,19 @@ class OverseerMenu(Menu):
     def __init__(self, **kwargs):
         Menu.__init__(self, **kwargs)
         self.children += [
-            items.MenuItem(_("Celery"), reverse("admin:index")),
+            items.MenuItem(_("Overseer"), reverse("admin:index")),
             items.Bookmarks(),
+            items.MenuItem(
+                _("Purlovia"), reverse("admin:app_list", args=("purlovia",)),
+            ),
             items.AppList(
-                _("Applications"),
-                exclude=("django.contrib.*", "overseer.users.*", "allauth.*"),
+                _("Data"),
+                exclude=(
+                    "django.contrib.*",
+                    "overseer.users.*",
+                    "overseer.purlovia.*",
+                    "allauth.*",
+                ),
             ),
             items.AppList(
                 _("Administration"),

@@ -13,7 +13,12 @@ And to activate the app index dashboard::
 from admin_tools.dashboard import AppIndexDashboard, Dashboard, modules
 from django.utils.translation import ugettext_lazy as _
 
-from .modules import PurloviaModule
+from .modules import (
+    PurloviaConfigModule,
+    PurloviaLatestRunModule,
+    PurloviaRunningModule,
+    PurloviaSummaryModule,
+)
 
 
 class OverseerIndexDashboard(Dashboard):
@@ -24,7 +29,7 @@ class OverseerIndexDashboard(Dashboard):
     def init_with_context(self, context):
         # append an app list module for "Applications"
 
-        self.children.append(PurloviaModule())
+        self.children.append(PurloviaSummaryModule())
         self.children.append(
             modules.Group(
                 _("Data"),
@@ -35,6 +40,7 @@ class OverseerIndexDashboard(Dashboard):
                         exclude=(
                             "django.contrib.*",
                             "overseer.users.*",
+                            "overseer.purlovia.*",
                             "allauth.*",
                         ),
                     ),
@@ -62,15 +68,23 @@ class OverseerAppIndexDashboard(AppIndexDashboard):
     # we disable title because its redundant with the model list module
     title = ""
 
-    def __init__(self, *args, **kwargs):
-        AppIndexDashboard.__init__(self, *args, **kwargs)
-
-        # append a model list module and a recent actions module
-        self.children += [
-            modules.ModelList(self.app_title, self.models),
-            modules.RecentActions(
-                _("Recent Actions"),
-                include_list=self.get_app_content_types(),
-                limit=5,
-            ),
-        ]
+    def init_with_context(self, context):
+        if self.get_id() == "purlovia-dashboard":
+            self.title = self.app_title
+            self.columns = 1
+            self.children = [
+                PurloviaSummaryModule(enabled=False),
+                PurloviaConfigModule(),
+                PurloviaLatestRunModule(),
+                PurloviaRunningModule(),
+            ]
+        else:
+            # append a model list module and a recent actions module
+            self.children += [
+                modules.ModelList(self.app_title, self.models),
+                modules.RecentActions(
+                    _("Recent Actions"),
+                    include_list=self.get_app_content_types(),
+                    limit=5,
+                ),
+            ]

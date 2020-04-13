@@ -24,6 +24,8 @@
             {% if not module.last_started and module.can_start %}
                 <p><a href="{% url 'admin:start_task' module.task_name %}">{% trans "Manually Start Purlovia" %}</a></p>
             {% endif %}
+
+            <p><a href="{% url 'admin:purlovia_config_changelist' %}">{% trans "Edit Config" %}</a></p>
         </div>
     </div>
 {% endif %}

@@ -13,10 +13,10 @@ __all__ = [
     "ROOT_LOGGER",
 ]
 
-CONFIG_FILENAME = "/app/purlovia/config.ini"
-OVERRIDE_FILENAME = "/app/purlovia/overrides.yaml"
-LOGGING_FILENAME = "/app/purlovia/logging.yaml"
-HIERARCHY_FILENAME = "/app/purlovia/hierarchy.yaml"
+DEFAULT_CONFIG_FILENAME = "/app/overseer/purlovia/config/config.default.ini"
+OVERRIDE_FILENAME = "/app/overseer/purlovia/config/overrides.yaml"
+LOGGING_FILENAME = "/app/overseer/purlovia/config/logging.yaml"
+HIERARCHY_FILENAME = "/app/overseer/purlovia/config/hierarchy.yaml"
 ROOT_LOGGER = "celery.task."
 DO_SIMPLE_RUN = True
 
@@ -38,4 +38,4 @@ def force_reload():
 def _ensure_loaded():
     global config  # pylint: disable=global-statement
     if not config:
-        config = read_config(CONFIG_FILENAME)
+        config = read_config(DEFAULT_CONFIG_FILENAME)

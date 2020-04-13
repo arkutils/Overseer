@@ -1,0 +1,14 @@
+{% load humanize i18n %}
+
+{% if not module.is_empty %}
+    <div id="module_{{ module.id }}" class="{{ module.render_css_classes }}">
+        {% if module.show_title and module.title %}<h2>{% if module.title_url %}<a href="{{ module.title_url }}">{{ module.title|capfirst }}</a>{% else %}{{ module.title|capfirst }}{% endif %}</h2>{% endif %}
+        <div class="dashboard-module-content">
+            {% if module.config_version %}
+                <p><strong>{% trans "Last Updated" %}</strong>: {{ module.config_version.revision.date_created|naturaltime }}</p>
+                <p><strong>{% trans "Change Message" %}</strong>: {{ module.config_version.revision.comment }}</p>
+            {% endif %}
+            <p><a href="{% url 'admin:purlovia_config_changelist' %}">{% trans "Edit Config" %}</a> | <a href="{% url 'admin:purlovia_config_history' '1' %}">{% trans "See History" %}</a></p>
+        </div>
+    </div>
+{% endif %}

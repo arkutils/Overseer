@@ -92,6 +92,8 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.github",
     "django_celery_beat",
     "django_celery_results",
+    "djangocodemirror",
+    "reversion",
 ]
 
 LOCAL_APPS = [
@@ -340,3 +342,62 @@ ADMIN_TOOLS_APP_INDEX_DASHBOARD = (
     "overseer.admin.dashboard.OverseerAppIndexDashboard"
 )
 FLOWER_BASE_URL = env("FLOWER_BASE_URL")
+
+# codemirror
+# ------------------------------------------------------------------------------
+
+# Template string for HTML Code to instanciate CodeMirror for a field.
+CODEMIRROR_FIELD_INIT_JS = (u"""<script>var {varname} = """
+                            """CodeMirror.fromTextArea("""
+                            """document.getElementById("{inputid}"),"""
+                            """{settings});</script>""")
+
+# Available CodeMirror configurations.
+CODEMIRROR_SETTINGS = {
+    'properties': {
+        'mode': 'properties',
+        'modes': ['properties'],
+    },
+}
+
+# List of CodeMirror Javascript base files that will be loaded before every
+# other CodeMirror Javascript components.
+CODEMIRROR_BASE_JS = ["CodeMirror/lib/codemirror.js"]
+
+# List of CodeMirror CSS base files that will be loaded before themes.
+CODEMIRROR_BASE_CSS = ["CodeMirror/lib/codemirror.css"]
+
+# Available CodeMirror CSS Theme files.
+CODEMIRROR_THEMES = {
+    "monokai": "CodeMirror/theme/monokai.css",
+}
+
+# Available CodeMirror Javascript mode files.
+CODEMIRROR_MODES = {
+    "properties": "CodeMirror/mode/properties/properties.js",
+}
+
+# HTML element to load a Javascript asset
+CODEMIRROR_JS_ASSET_TAG = (u'<script type="text/javascript" '
+                           'src="{url}"></script>')
+
+# HTML element to load a CSS asset
+CODEMIRROR_CSS_ASSET_TAG = u'<link rel="stylesheet" href="{url}">'
+
+# Template string for Javascript bundle names
+CODEMIRROR_BUNDLE_CSS_NAME = "dcm-{settings_name}_css"
+
+# Template string for CSS bundle names
+CODEMIRROR_BUNDLE_JS_NAME = "dcm-{settings_name}_js"
+
+# Option arguments used to build CSS bundles with ``django-assets``.
+CODEMIRROR_BUNDLE_CSS_OPTIONS = {
+    'filters': 'yui_css',
+    'output': 'css/dcm-{settings_name}.min.css',
+}
+
+# Option arguments used to build Javascript bundles with ``django-assets``.
+CODEMIRROR_BUNDLE_JS_OPTIONS = {
+    'filters': 'yui_js',
+    'output': 'js/dcm-{settings_name}.min.js',
+}
