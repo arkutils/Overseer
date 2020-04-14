@@ -11,15 +11,8 @@ Project Overseer - watching Ark data
      :alt: Black code style
 
 
-:License: MIT
+:License: LGPLv3
 
-
-Settings
---------
-
-Moved to settings_.
-
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
 Requirements
 ------------

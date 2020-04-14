@@ -1,5 +1,3 @@
-import ue.context
-from automate.run import run
 from celery import current_app
 from celery.utils.log import get_task_logger
 from django.core.cache import cache
@@ -66,6 +64,11 @@ def automate():
 
     if acquired:
         try:
+            # make sure config is loaded at runtime
+            # pylint: disable=import-outside-toplevel
+            from automate.run import run
+            import ue.context
+
             ue.context.disable_metadata()
 
             config = get_global_config()

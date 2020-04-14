@@ -10,11 +10,18 @@ class Config(models.Model):
     config = models.TextField(_("Config"))
     last_updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return ugettext("Purlovia Config")
+
+    # pylint: disable=arguments-differ
     def save(self, *args, **kwargs):
+        # only a single config instance exists
         self.pk = 1
         super().save(*args, **kwargs)
 
+    # pylint: disable=arguments-differ
     def delete(self, *args, **kwargs):
+        # config cannot be deleted
         pass
 
     @classmethod
@@ -29,6 +36,3 @@ class Config(models.Model):
                     obj.save()
 
         return obj
-
-    def __str__(self):
-        return ugettext("Purlovia Config")

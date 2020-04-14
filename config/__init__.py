@@ -1,5 +1,3 @@
-from typing import Optional
-
 from automate.config.reader import read_config
 from automate.config.sections import ConfigFile
 
@@ -20,22 +18,22 @@ HIERARCHY_FILENAME = "/app/overseer/purlovia/config/hierarchy.yaml"
 ROOT_LOGGER = "celery.task."
 DO_SIMPLE_RUN = True
 
-config: Optional[ConfigFile] = None
-
 
 def get_global_config() -> ConfigFile:
-    _ensure_loaded()
-    assert config is not None  # nosec
-    return config
+    # make sure current task is loaded at runtime
+    # pylint: disable=import-outside-toplevel
+    from celery import current_task
+    from overseer.purlovia.models import Config
+    from django.core.cache import cache
 
-
-def force_reload():
-    global config  # pylint: disable=global-statement
     config = None
-    _ensure_loaded()
+    if current_task is not None:
+        config = cache.get(f"config.{current_task.request.id}")
 
+    if config is None:
+        config = read_config(config_string=Config.load().config)
 
-def _ensure_loaded():
-    global config  # pylint: disable=global-statement
-    if not config:
-        config = read_config(DEFAULT_CONFIG_FILENAME)
+        if current_task is not None:
+            cache.set(f"config.{current_task.request.id}", config, 43200)
+
+    return config
