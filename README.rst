@@ -1,7 +1,7 @@
 Overseer
 ========
 
-Project Overseer - watching Ark data
+Project Overseer - bossing around Purlovia
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
