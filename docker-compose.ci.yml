@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  django: &django
+    build:
+      cache_from:
+      - docker.pkg.github.com/arkutils/overseer/build-cache-django
+      - overseer_dev_django
+
+  lint:
+    <<: *django
+
+  test:
+    <<: *django
+
+  postgres:
+    build:
+      cache_from:
+      - docker.pkg.github.com/arkutils/overseer/build-cache-postgres
+      - overseer_postgres

@@ -71,12 +71,12 @@ class TaskResultAdmin(admin.ModelAdmin):
         if not instance or not instance.pk:
             return None
 
-        output = get_output_for_task(instance)
+        output_lines = get_output_for_task(instance)
 
-        if len(output) == 0:
+        if len(output_lines) == 0:
             return None
 
-        output = "\n".join(output)
+        output = "\n".join(output_lines)
         return mark_safe(  # nosec
             f"<br><pre style='white-space: pre-wrap;'>{output}</pre>"
         )

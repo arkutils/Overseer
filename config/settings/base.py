@@ -347,17 +347,16 @@ FLOWER_BASE_URL = env("FLOWER_BASE_URL")
 # ------------------------------------------------------------------------------
 
 # Template string for HTML Code to instanciate CodeMirror for a field.
-CODEMIRROR_FIELD_INIT_JS = (u"""<script>var {varname} = """
-                            """CodeMirror.fromTextArea("""
-                            """document.getElementById("{inputid}"),"""
-                            """{settings});</script>""")
+CODEMIRROR_FIELD_INIT_JS = (
+    u"""<script>var {varname} = """
+    """CodeMirror.fromTextArea("""
+    """document.getElementById("{inputid}"),"""
+    """{settings});</script>"""
+)
 
 # Available CodeMirror configurations.
 CODEMIRROR_SETTINGS = {
-    'properties': {
-        'mode': 'properties',
-        'modes': ['properties'],
-    },
+    "properties": {"mode": "properties", "modes": ["properties"]},
 }
 
 # List of CodeMirror Javascript base files that will be loaded before every
@@ -378,8 +377,9 @@ CODEMIRROR_MODES = {
 }
 
 # HTML element to load a Javascript asset
-CODEMIRROR_JS_ASSET_TAG = (u'<script type="text/javascript" '
-                           'src="{url}"></script>')
+CODEMIRROR_JS_ASSET_TAG = (
+    u'<script type="text/javascript" ' 'src="{url}"></script>'
+)
 
 # HTML element to load a CSS asset
 CODEMIRROR_CSS_ASSET_TAG = u'<link rel="stylesheet" href="{url}">'
@@ -392,12 +392,12 @@ CODEMIRROR_BUNDLE_JS_NAME = "dcm-{settings_name}_js"
 
 # Option arguments used to build CSS bundles with ``django-assets``.
 CODEMIRROR_BUNDLE_CSS_OPTIONS = {
-    'filters': 'yui_css',
-    'output': 'css/dcm-{settings_name}.min.css',
+    "filters": "yui_css",
+    "output": "css/dcm-{settings_name}.min.css",
 }
 
 # Option arguments used to build Javascript bundles with ``django-assets``.
 CODEMIRROR_BUNDLE_JS_OPTIONS = {
-    'filters': 'yui_js',
-    'output': 'js/dcm-{settings_name}.min.js',
+    "filters": "yui_js",
+    "output": "js/dcm-{settings_name}.min.js",
 }

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 volumes:
   local_postgres_data: {}
@@ -8,8 +8,9 @@ services:
   django: &django
     build:
       context: .
-      dockerfile: ./compose/local/django/Dockerfile
-    image: overseer_local_django
+      dockerfile: ./docker/django/Dockerfile
+      target: dev
+    image: overseer_dev_django
     depends_on:
       - postgres
     volumes:
@@ -34,11 +35,25 @@ services:
     command: ""
     ports: []
 
+  lint:
+    <<: *django
+    depends_on: []
+    entrypoint: /bin/bash
+    command: -c "cd /app && black . --check && flake8 . && isort && mypy . && bandit ."
+    ports: []
+
+  format:
+    <<: *django
+    depends_on: []
+    entrypoint: /bin/bash
+    command: -c "/usr/local/bin/black --config /app/pyproject.toml /app/"
+    ports: []
+
   postgres:
     build:
       context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: overseer_production_postgres
+      dockerfile: ./docker/postgres/Dockerfile
+    image: overseer_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
       - local_postgres_data_backups:/backups
@@ -51,7 +66,7 @@ services:
 
   celery:
     <<: *django
-    image: overseer_local_celeryworker
+    image: overseer_dev_celeryworker
     depends_on:
       - redis
       - postgres
@@ -61,7 +76,7 @@ services:
 
   celerybeat:
     <<: *django
-    image: overseer_local_celerybeat
+    image: overseer_dev_celerybeat
     depends_on:
       - redis
       - postgres
@@ -71,7 +86,7 @@ services:
 
   flower:
     <<: *django
-    image: overseer_local_flower
+    image: overseer_dev_flower
     ports:
       - "5555:5555"
     command: /start-flower
