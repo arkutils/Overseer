@@ -1,3 +1,5 @@
+import os
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -38,3 +40,9 @@ if settings.DEBUG:
         urlpatterns = [
             path("__debug__/", include(debug_toolbar.urls))
         ] + urlpatterns
+
+# only add /users for tests as the main site is not using it yet
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.test":
+    urlpatterns += [
+        path("users/", include("overseer.users.urls", namespace="users"))
+    ]

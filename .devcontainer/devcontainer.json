@@ -51,7 +51,14 @@
         "bungcip.better-toml",
     ],
     // Uncomment the next line if you want start specific services in your Docker Compose config.
-    // "runServices": [],
+    "runServices": [
+        "django",
+        "postgres",
+        "redis",
+        "celery",
+        "celerybeat",
+        "flower",
+    ],
     // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
     // "shutdownAction": "none",
     // Uncomment the next line to run commands after the container is created - for example installing git.
