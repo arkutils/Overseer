@@ -6,7 +6,7 @@
         {
             "label": "Overseer: Update Requirements",
             "type": "shell",
-            "command": "pip-compile requirements/in/base.in requirements/in/dev.in -o requirements/dev.txt --upgrade && pip-compile requirements/in/base.in -o requirements/production.txt --upgrade",
+            "command": "pip-compile requirements/in/base.in requirements/in/dev.in -o requirements/dev.txt --upgrade && pip-compile requirements/in/base.in requirements/in/production.in -o requirements/production.txt --upgrade",
             "problemMatcher": []
         },
         {
