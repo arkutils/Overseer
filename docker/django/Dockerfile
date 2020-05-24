@@ -78,6 +78,7 @@ RUN chmod +x /start-celerybeat
 COPY --chown=django:django ./docker/celery/production/flower/start /start-flower
 RUN chmod +x /start-flower
 
+COPY --chown=django:django ./manage.py /app/
 COPY --chown=django:django ./locale /app/locale
 COPY --chown=django:django ./config /app/config
 COPY --chown=django:django ./overseer /app/overseer
