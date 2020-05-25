@@ -154,3 +154,5 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+STATIC_ROOT = env("DJANGO_STATIC_ROOT", default="/web/static")
+MEDIA_ROOT = env("DJANGO_MEDIA_ROOT", default="/web/media")
